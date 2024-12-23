@@ -2,12 +2,11 @@ import React, { useState } from 'react';
 import '../hojas-de-estilo/Tips.css';
 
 const Tips = () => {
-  const [price, setPrice] = useState(''); // Precio ingresado por el usuario
-  const [tip, setTip] = useState(null); // Propina calculada
-  const [total, setTotal] = useState(null); // Total con la propina
-  const [error, setError] = useState(''); // Mensaje de error si el valor no es válido
+  const [price, setPrice] = useState('');
+  const [tip, setTip] = useState(null);
+  const [total, setTotal] = useState(null);
+  const [error, setError] = useState('');
 
-  // Función para calcular la propina
   const calculateTip = () => {
     if (!price || isNaN(price) || parseFloat(price) <= 0) {
       setError('Please enter a valid number greater than 0.');
@@ -16,13 +15,12 @@ const Tips = () => {
       return;
     }
 
-    const calculatedTip = (parseFloat(price) * 1.5) / 100; // 1.50% del precio
-    setTip(calculatedTip.toFixed(2)); // Establece la propina con dos decimales
-    setTotal((parseFloat(price) + calculatedTip).toFixed(2)); // Total con la propina
-    setError(''); // Limpiar mensaje de error
+    const calculatedTip = (parseFloat(price) * 1.5) / 100;
+    setTip(calculatedTip.toFixed(2));
+    setTotal((parseFloat(price) + calculatedTip).toFixed(2));
+    setError('');
   };
 
-  // Función para limpiar los campos
   const clearFields = () => {
     setPrice('');
     setTip(null);
@@ -31,7 +29,11 @@ const Tips = () => {
   };
 
   return (
+    
     <div className="tips-container">
+      
+      {/* Ícono animado usando imagen */}
+      
       <h1>Service Charge Calculator</h1>
       <div className="input-container">
         <label htmlFor="price">Enter the price of the dish:</label>
@@ -43,7 +45,7 @@ const Tips = () => {
           placeholder="Enter amount"
         />
       </div>
-      {error && <p className="error-message">{error}</p>} {/* Mostrar mensaje de error */}
+      {error && <p className="error-message">{error}</p>}
       <button onClick={calculateTip} className="calculate-btn">
         Calculate Tip
       </button>
@@ -54,7 +56,7 @@ const Tips = () => {
         <div className="result-container">
           <p className="tip-amount">Suggested tip (1.50%): ${tip}</p>
           <p className="total-amount">Total with tip: ${total}</p>
-          <p className="clear-message">Clear to calculate another balance.</p> {/* Nuevo mensaje */}
+          <p className="clear-message">Clear to calculate another balance.</p>
         </div>
       )}
     </div>

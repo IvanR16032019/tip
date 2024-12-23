@@ -11,20 +11,48 @@ body {
   font-family: Arial, sans-serif;
 }
 
+/* Contenedor principal */
 .tips-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
+  justify-content: flex-start; /* Ajusta para que no quede centrado, sino más cerca de la parte superior */
+  height: auto;
   background-color: rgba(244, 244, 249, 0.9); /* Fondo ligeramente translúcido para mejorar legibilidad */
   color: #333;
   padding: 20px;
-  border-radius: 10px; /* Opcional, para bordes redondeados */
-  width: 98%;
-  max-width: 375px; /* Un tamaño más ajustado en pantallas grandes */
-  margin: auto;
+  border-radius: 10px; /* Bordes redondeados */
+  width: 90%; /* Reduce el ancho para pantallas pequeñas */
+  max-width: 375px;
+  margin: 20px auto; /* Margen para centrado horizontal */
   box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+  position: relative; /* Necesario para posicionar el logo */
+  padding-top: 60px; /* Mantiene el espacio arriba para el logo */
+}
+
+/* Estilo para el ícono animado */
+.icon-container {
+  position: absolute;
+  top: 30px;  /* Ajusta el espacio superior para que el icono no se superponga */
+  left: 20px; /* Mantén la posición en la esquina superior izquierda */
+  z-index: 10;
+}
+
+.animated-icon {
+  width: 50px; /* Tamaño del ícono */
+  animation: slideIn 1s ease-out;
+}
+
+/* Animación para el ícono */
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
 
 h1 {
@@ -159,20 +187,22 @@ button {
   }
 
   .tips-container {
-    height: auto; /* El contenedor ya no necesita llenar toda la altura */
+    padding-top: 100px; /* Aumenta el espacio superior para dar más margen en móviles */
     padding: 15px;
-    margin: 10px;
+    margin: 10px 20px; /* Ajusta los márgenes para pantallas más pequeñas */
+    max-width: 90%; /* El contenedor ocupa menos espacio en pantallas móviles */
+    box-sizing: border-box;
   }
 
   h1 {
-    font-size: 24px; /* Tamaño de fuente más pequeño */
+    font-size: 24px; /* Tamaño de fuente más pequeño en móviles */
     text-align: center; /* Centra el título en móviles */
   }
 
   .input-container {
     width: 100%;
     align-items: stretch; /* Los inputs ocupan todo el ancho disponible */
-    max-width: 320px; /* Reduce un poco más el contenedor */
+    max-width: 100%; /* Reduce el contenedor a todo el ancho */
   }
 
   input {
@@ -195,5 +225,9 @@ button {
 
   .clear-message {
     font-size: 12px; /* Reduce el tamaño del mensaje */
+  }
+
+  .icon-container {
+    top: 40px; /* Incrementa el espacio desde la parte superior en móviles */
   }
 }
