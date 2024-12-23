@@ -48,7 +48,7 @@ const Tips = () => {
         Calculate Tip
       </button>
       <button onClick={clearFields} className="clear-btn">
-        Clear
+        Empty
       </button>
       {tip !== null && (
         <div className="result-container">
