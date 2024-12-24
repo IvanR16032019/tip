@@ -22,7 +22,7 @@ body {
   color: #333;
   padding: 20px;
   border-radius: 10px; /* Bordes redondeados */
-  width: 90%; /* Reduce el ancho para pantallas pequeñas */
+  width: 100%; /* Reduce el ancho para pantallas pequeñas */
   max-width: 375px;
   margin: 20px auto; /* Margen para centrado horizontal */
   box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
@@ -32,9 +32,9 @@ body {
 
 /* Estilo para el ícono animado */
 .icon-container {
-  position: absolute;
-  top: 30px;  /* Ajusta el espacio superior para que el icono no se superponga */
-  left: 20px; /* Mantén la posición en la esquina superior izquierda */
+  position: fixed;
+  top: 10px; /* Logo más arriba */
+  left: 10px; /* Posición en la esquina superior izquierda */
   z-index: 10;
 }
 
@@ -187,9 +187,8 @@ button {
   }
 
   .tips-container {
-    padding-top: 100px; /* Aumenta el espacio superior para dar más margen en móviles */
     padding: 15px;
-    margin: 10px 20px; /* Ajusta los márgenes para pantallas más pequeñas */
+    margin: 50px 20px 0; /* Ajusta el margen superior para moverlo más abajo */
     max-width: 90%; /* El contenedor ocupa menos espacio en pantallas móviles */
     box-sizing: border-box;
   }
@@ -225,9 +224,5 @@ button {
 
   .clear-message {
     font-size: 12px; /* Reduce el tamaño del mensaje */
-  }
-
-  .icon-container {
-    top: 40px; /* Incrementa el espacio desde la parte superior en móviles */
   }
 }
